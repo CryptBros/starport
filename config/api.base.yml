@@ -1,0 +1,12 @@
+api:
+  host: 0.0.0.0
+  port: 3000
+horizon:
+  host: https://horizon-testnet.stellar.org
+  port: 80
+mongo:
+  username: starport
+  password: startport2018
+  host: 192.168.0.60
+  port: 27017
+  db: starport
