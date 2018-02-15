@@ -3,7 +3,7 @@ var app = express()
 var mongoose = require('mongoose')
 var config = require('./config')
 var bodyParser = require('body-parser')
-var routes = require('./api/routes/routes');
+var routes = require('./api/routes');
 
 // mongoose mongo connection
 // mongoose.Promise = global.Promise
