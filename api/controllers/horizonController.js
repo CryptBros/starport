@@ -20,10 +20,7 @@ exports.getBalance = function(req, res) {
   try {
     server.loadAccount(address).then(function(account) {
       console.log('Balances for account: ' + address);
-      account.balances.forEach(function(balance) {
-        console.log('Type:', balance.asset_type, ', Balance:', balance.balance);
-        res.status(200).json({"balance": balance.balance})
-      });
+      res.status(200).json({"account_balances": account.balances})
     });
   } catch(err) {
     console.log(err);
