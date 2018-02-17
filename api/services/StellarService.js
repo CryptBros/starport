@@ -26,3 +26,11 @@ exports.getTransactions = function(address, cursor, cb) {
 //     console.log( JSON.stringify(StellarSdk.xdr.TransactionResult.fromXDR(txResponse.result_xdr, 'base64')) );
 //     console.log( JSON.stringify(StellarSdk.xdr.TransactionMeta.fromXDR(txResponse.result_meta_xdr, 'base64')) );
 // };
+
+
+exports.getOperations = function(address, cursor, cb) {
+  server.operations()
+    .forAccount(address)
+    .cursor(cursor)
+    .call().then(cb)
+}
