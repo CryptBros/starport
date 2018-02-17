@@ -1,7 +1,11 @@
 'use strict'
 module.exports = function(app) {
-  var horizonController = require('./controllers/horizonController')
+  var balancesController = require('./controllers/balancesController')
+  var transactionsController = require('./controllers/transactionsController')
 
   app.route('/balances')
-    .get(horizonController.getBalances)
+    .get(balancesController.getBalances)
+
+  app.route('/transactions')
+    .get(transactionsController.getTransactions)
 }
