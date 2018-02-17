@@ -20,7 +20,7 @@ exports.getTransactions = function(address, cursor, cb) {
     .call().then(cb)
 }
 
-// To read the XDR on raw transactions. Includes all information about the transaction
+// To read the XDR on raw transactions. Includes all information about the transaction. You can also stream results :)
 // var txHandler = function (txResponse) {
 //     console.log( JSON.stringify(StellarSdk.xdr.TransactionEnvelope.fromXDR(txResponse.envelope_xdr, 'base64')) );
 //     console.log( JSON.stringify(StellarSdk.xdr.TransactionResult.fromXDR(txResponse.result_xdr, 'base64')) );
