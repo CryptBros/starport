@@ -17,4 +17,3 @@ function load(file) {
 }
 
 _.merge(config, load('api.base.yml'))
-_.merge(config, load('api.urls.yml'))
