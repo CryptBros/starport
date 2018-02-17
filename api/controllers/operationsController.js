@@ -2,6 +2,16 @@
 var request = require('request');
 var stellar = require('../services/StellarService');
 
+exports.getOperations = function(req, res) {
+  var address = req.query.address;
+  stellar.getOperations(address, 0, function(operations) {
+    var result = operations.records.map(function(op) {
+      return handleOp[op.type](op)
+    })
+    res.status(200).json(result)
+  })
+}
+
 var handleOp = {
   "payment": handlePaymentType,
   "create_account": handleCreateAccountType,
@@ -14,16 +24,6 @@ var handleOp = {
   "account_merge": handleAccountMergeType,
   "inflation": handleInflationType,
   "manage_data": handleManageDataType
-}
-
-exports.getOperations = function(req, res) {
-  var address = req.query.address;
-  stellar.getOperations(address, 0, function(operations) {
-    var result = operations.records.map(function(op) {
-      return handleOp[op.type](op)
-    })
-    res.status(200).json(result)
-  })
 }
 
 function handlePaymentType(op) {
